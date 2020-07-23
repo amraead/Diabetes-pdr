@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify, render_template
 import pickle
 
 app = Flask(__name__)
+model = pickle.load(open('model.pkl', 'rb'))
 
 
 @app.route('/')
@@ -13,7 +14,6 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
-    model = pickle.load(open('model.pkl', 'rb'))
     '''
     For rendering results on HTML GUI
     '''
