@@ -1,10 +1,9 @@
 import numpy as np
-import time
-import threading
 from flask import Flask, request, jsonify, render_template
 import pickle
 
 app = Flask(__name__)
+
 model = pickle.load(open('model.pkl', 'rb'))
 
 
@@ -16,34 +15,37 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
+    model = pickle.load(open('model.pkl', 'rb'))
     '''
     For rendering results on HTML GUI
     '''
     int_features = [float(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
-    predictionsProb =model.predict_proba(final_features)
+    final_features = np.array(int_features)
+    prediction = model.predict([[final_features]])
+    predictionsProb =model.predict_proba([[final_features]])
+   # prediction = model.predict(np.array([[1,85,66,29,0,26.6,0.351,31]]))
+   # predictionsProb = model.predict_proba(np.array([[1,85,66,29,0,26.6,0.351,31]]))
+    
+    s=round(prediction[0,0])
     
     
-    c=(predictionsProb)
-    for b,value in enumerate(c,1):
-      x=round(max(value*100))
-     
-    if prediction==1 :
-     return render_template('index.html', prediction_text ='you are at risk of infection by heart disease over the next ten years',  predictions_prob = 'with ratio  ',p = x,per = '%')
-    elif  prediction==0 :
-     return render_template('index.html', prediction_text ='You are not threatened with heart disease during the next ten years',  predictions_prob = 'with ratio  ',p = x, per = '%')
+    mk = predictionsProb[0,1]*100
+  
+    if s==1 :
+     return render_template('index.html', prediction_text ='you are at risk of infection by diabete',  predictions_prob = 'with ratio  ',p = mk , per = '%')
+    else:
+     return render_template('index.html', prediction_text ='You are not threatened with diabete',  predictions_prob = 'with ratio  ',p = mk, per = '%')
 
-   # output = round(prediction[0], 2)
+  # output = round(prediction[0], 2)
    
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
     '''
     For direct API calls trought request
     '''
-
+    
     data = request.get_json(force=True)
-    prediction = model.predict([np.array(list(data.values()))])
+    prediction = model.predict([[np.array(list(data.values()))]])
 
     output = prediction[0]
     return jsonify(output)
