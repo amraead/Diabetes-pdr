@@ -6,66 +6,60 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!doctype html>
 <html lang="en">
+
 <head>
-<title>Disease Prediction</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Ordering Form Widget Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- font files -->
-<link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
-<!-- /font files -->
-<!-- css files -->
-<link rel="stylesheet" href="../static/css/style.css">
-<link rel="shortcut icon" type="image/x-icon" href="../static/img/logo.png">
-    <style>
-        body{
-     background-image: url("../static/img/Document.png");
+    <title>Disease Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Ordering Form Widget Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+    />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
         }
-    
+    </script>
+    <!-- font files -->
+    <link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <!-- /font files -->
+    <!-- css files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="../static/img/logo.png">
+    <style>
+        body {
+            background-image:url(../static/img/log.jpg);
+        }
     </style>
-<!-- /css files -->
-<script async>(function(w, d) { w.CollectId = "5e84314bcf97132cebce778d"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
-	</head>
+    <!-- /css files -->
+</head>
+
 <body>
     <div id="w3lDemoBar" class="w3l-demo-bar">
-  <a href="https://medicalfuture.000webhostapp.com/after/elementsafter.php?fbclid=IwAR2dup_LPfliIOHikSmV9SP9uSnKUjAV_8VteDRQq73TbrjQzuG3tUX4dT8" ga-on="click" ga-event-category="Valid Login Form Template" ga-event-action="view" ga-event-label="Valid Login Form - view">
-    <span class="w3l-icon -back">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M0 0h24v24H0V0z"/><path d="M16.62 2.99c-.49-.49-1.28-.49-1.77 0L6.54 11.3c-.39.39-.39 1.02 0 1.41l8.31 8.31c.49.49 1.28.49 1.77 0s.49-1.28 0-1.77L9.38 12l7.25-7.25c.48-.48.48-1.28-.01-1.76z"/></svg>
+        <a href="https://medicalfuture.000webhostapp.com/after/elementsafter.php?fbclid=IwAR2dup_LPfliIOHikSmV9SP9uSnKUjAV_8VteDRQq73TbrjQzuG3tUX4dT8" ga-on="click" ga-event-category="Valid Login Form Template" ga-event-action="view" ga-event-label="Valid Login Form - view">
+            <span class="w3l-icon -back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 10 24 24"><path opacity=".87" fill="none" d="M0 0h24v24H0V0z"/><path d="M16.62 2.99c-.49-.49-1.28-.49-1.77 0L6.54 11.3c-.39.39-.39 1.02 0 1.41l8.31 8.31c.49.49 1.28.49 1.77 0s.49-1.28 0-1.77L9.38 12l7.25-7.25c.48-.48.48-1.28-.01-1.76z"/></svg>
     </span>
-    <span class="w3l-text">Back</span>
-  </a>
+            <span class="w3l-text">Back</span>
+        </a>
     </div>
-	<p><br><br></p>
-<div class="content-w3ls">
-	<form action="{{ url_for('predict')}}"method="post" id="idOfForm">
+    <p><br><br></p>
+    <div class="content-w3ls">
+        <form action="{{ url_for('predict')}}"method="post" id="idOfForm">
         <div class="form-wthree1 wthree w3-agileits agileits-w3layouts agile w3-agile">
 
             <div class="form-control">
-                <label class="header">Select Gender<span>:</span></label>
-                <select name="Gender" required="required" id="select1">
-                        <option data-display="Sex" value="1">Male</option>
-                        <option value="0">Female</option>
-                            
-                </select>
+                <label class="header">Pregnancies<span>:</span></label>
+                <input type="number" name="age" id="age" placeholder="Enter Pregnancies" title="Enter Pregnancies" required="required" min="0" max="1000" step="any" />
             </div>
-            <div class="form-control">
-                <label class="header">Enter Your Age<span>:</span></label>
-                <input type="number" name="age" id="age" placeholder="Age" title="Please enter your Age" required="required" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" min="0" max="110" step="any" />
-            </div>
-           
+  
 
             <div class="form-control">
-                <label class="header">Are You Smoker <span>:</span></label>
-                <select name="currentsmoker" required="required" id="select2">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                </select>
-            </div>
-
-            <div class="form-control">
-                <label class="header">Cigarettes-PerDay<span>:</span></label>
-                <input type="number" name="cigsPerDay" id="cig" placeholder="How Many Cigarettes-PerDay ?" title="How Many Cigarettes-perday ?" required="required" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" min="0" max="110" step="any"/>
+                <label class="header">Glucose<span>:</span></label>
+                <input type="number" name="cigsPerDay" id="cig" placeholder="Enter Glucose" title="Enter Glucose" required="required" min="0" max="1000"
+                    step="any" />
 
             </div>
 
@@ -73,24 +67,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             <div class="form-control">
                 <label class="header">Blood Pressure<span>:</span></label>
-                <input type="number" id="address2" name="BPMeds" placeholder="Do You Take Blood Pressure Medicine?" onkeypress="return event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)" title="Do You Take Blood Pressure Medicine Recently ?" required="required"
-                    step="any" min="0">
+                <input type="number" id="address2" name="BPMeds" placeholder="Enter Blood Pressure"  title="Do You Take Blood Pressure Medicine Recently ?" required="required"
+                    step="any">
             </div>
-
+            
+            
             <div class="form-control">
-                <label class="header">Previously Stroke <span>:</span></label>
-                <select name="prevalentStroke" title="Are You Previously Had a Stroke ?" required="required" id="select3">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                </select>
-            </div>
-
-            <div class="form-control">
-                <label class="header">Prevalent Hypertensive <span>:</span></label>
-                <select name="prevalentHyp" title="Have You Had Hypertensive ?" required="required" id="select4">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                </select>
+                <label class="header">Skin Thickness<span>:</span></label>
+                <input type="number" id="chol" name="totChol" placeholder="Enter Skin Thickness" required="required"  min="0" max="1000" step="any">
             </div>
 
 
@@ -99,40 +83,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="form-wthree2 wthree w3-agileits agileits-w3layouts agile w3-agile">
 
             <div class="form-control">
-                <label class="header"> Diabetes <span>:</span></label>
-                <select name="diabetes" title="Are You Had Diabetes ?" required="required" id="select5">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                </select>
-            </div>
-            <div class="form-control">
-                <label class="header">Cholesterol Level<span>:</span></label>
-                <input type="number" id="chol" name="totChol" placeholder="Cholesterol Level" title="How Much Total Cholesterol Level ?" required="required" onkeypress="return event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)" step="any" min="0">
+                <label class="header">Insulin<span>:</span></label>
+                <input type="number" id="pre"  name="sysBP" placeholder="Enter Insulin" title="How much systolic blood pressure ?" required="required" min="0" max="1000" step="any">
             </div>
 
             <div class="form-control">
-                <label class="header">systolic blood<br>pressure<span>:</span></label>
-                <input type="number" id="pre" onkeypress="return event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)" name="sysBP" placeholder="How much systolic blood pressure ?" title="How much systolic blood pressure ?" required="required" step="any" min="0">
+                <label class="header">BMI<span>:</span></label>
+                <input type="number" id="dbl"  name="diaBP" placeholder="Enter BMI" title="How Much Diastolic Blood Pressure ?" required="required" min="0" max="1000" step="any">
             </div>
 
             <div class="form-control">
-                <label class="header">Diastolic Blood<br>Pressure<span>:</span></label>
-                <input type="number" id="dbl" onkeypress="return event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)" name="diaBP" placeholder="How Much Diastolic Blood Pressure ?" title="How Much Diastolic Blood Pressure ?" required="required" step="any" min="0">
+                <label class="header">DiabetesPedegree<br>Function<span>:</span></label>
+                <input type="number" name="BMI" id="bmi" placeholder="Enter Diabetes Pedegree Function" title="Enter Diabetes Pedegree Function" required="requird"  min="0" max="1000" step="any">
             </div>
 
             <div class="form-control">
-                <label class="header">Body Mass Index<span>:</span></label>
-                <input type="number" name="BMI" id="bmi" placeholder="How Much Body Mass Index ?" title="How Much Body Mass Index ?" required="requird" onkeypress="return event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)" step="any" min="0">
-            </div>
-
-            <div class="form-control">
-                <label class="header">Heart Rate<span>:</span></label>
-                <input type="number" name="heartRate" id="hrt" placeholder="How Much Heart Rate ?" title="How Much Heart Rate ?" required="requird" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" min="0" step="any">
-            </div>
-
-            <div class="form-control">
-                <label class="header">Glucose Level<span>:</span></label>
-                <input type="number" name="glucose" id="glu" placeholder="How Much Glucose Level ?" title="How Much Glucose Level ?" required="requird" onkeypress="return event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)" step="any" min="0">
+                <label class="header">Age<span>:</span></label>
+                <input type="number" name="heartRate" id="hrt" placeholder="Enter Your Age" title="Enter Your Age" required="requird"  min="0" max="1000" step="any">
             </div>
 
         </div>
@@ -145,12 +112,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <div class="form-control last">
             <a><input type="text" value="send" style="text-align: center" class="reset" onclick="send()"></a>
             <button type="submit" class="register" id="message" >Predict</button>
+            
             <div class="clear"></div>
         </div>
         <!--{{ prediction_text }}<br>{{predictions_prob}}-->
 
         </form>
-        
     </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
@@ -179,36 +146,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     var db = firebase.firestore();
 
 function send() {
-    const gender = document.querySelector("#select1").value;
-    const agetxt = document.querySelector("#age").value;
-    const select2txt = document.querySelector("#select2").value;
-    const cigtxt = document.querySelector("#cig").value;
-    const address2txt = document.querySelector("#address2").value;
-    const select3txt = document.querySelector("#select3").value;
-    const select4txt = document.querySelector("#select4").value;
-    const select5txt = document.querySelector("#select5").value;
-    const choltxt = document.querySelector("#chol").value;
-    const pretxt = document.querySelector("#pre").value;
-    const dbltxt = document.querySelector("#dbl").value;
-    const bmitxt = document.querySelector("#bmi").value;
-    const hrttxt = document.querySelector("#hrt").value;
-    const glutxt = document.querySelector("#glu").value;
+    const Pregnanciestxt = document.querySelector("#age").value;
+    const Glucosetxt = document.querySelector("#cig").value;
+    const BloodPressuretxt = document.querySelector("#address2").value;
+    const SkinThicknesstxt = document.querySelector("#chol").value;
+    const Insulintxt = document.querySelector("#pre").value;
+    const BMItxt = document.querySelector("#dbl").value;
+    const DiabetesPedegreeFunctiontxt = document.querySelector("#bmi").value;
+    const agetxt = document.querySelector("#hrt").value;
 
-    db.collection("features").doc().set({
-            Gender: gender,
+    db.collection("diabetes").doc().set({
+            Pregnancies: Pregnanciestxt,
+            Glucose: Glucosetxt,
+            BloodPressure: BloodPressuretxt,
+            SkinThickness: SkinThicknesstxt,
+            Insulin: Insulintxt,
+            BMI: BMItxt,
+            DiabetesPedegreeFunction: DiabetesPedegreeFunctiontxt,
             Age: agetxt,
-            currentsmoker: select2txt,
-            CigarettesPerDay: cigtxt,
-            BloodPressure: address2txt,
-            prevalentStroke: select3txt,
-            prevalentHyp: select4txt,
-            diabetes: select5txt,
-            totChol: choltxt,
-            sysBP: pretxt,
-            DiastolicBlood: dbltxt,
-            BodyMassIndex: bmitxt,
-            heartRate: hrttxt,
-            glucose: glutxt
 
         })
         .then(function() {
