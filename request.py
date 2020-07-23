@@ -1,0 +1,1 @@
+url = 'http://localhost:5000/predict_api'
