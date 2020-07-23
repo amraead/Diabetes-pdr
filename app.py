@@ -14,12 +14,12 @@ def home():
 def predict():
     model = pickle.load(open('model.pkl', 'rb'))
     model._make_predict_function()
-    #int_features = [float(x) for x in request.form.values()]
-    #final_features = np.array(int_features)
-    #prediction = model.predict([[final_features]])
-    #predictionsProb =model.predict_proba([[final_features]])
-    prediction = model.predict(np.array([[1,85,66,29,0,26.6,0.351,31]]))
-    predictionsProb = model.predict_proba(np.array([[1,85,66,29,0,26.6,0.351,31]]))
+    int_features = [float(x) for x in request.form.values()]
+    final_features = np.array(int_features)
+    prediction = model.predict([[final_features]])
+    predictionsProb =model.predict_proba([[final_features]])
+    #prediction = model.predict(np.array([[1,85,66,29,0,26.6,0.351,31]]))
+    #predictionsProb = model.predict_proba(np.array([[1,85,66,29,0,26.6,0.351,31]]))
     
     s=round(prediction[0,0])
     
