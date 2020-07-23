@@ -1,82 +1,67 @@
-#Import Libraries
-from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import GaussianNB
-from sklearn.metrics import confusion_matrix
-import seaborn as sns
-import matplotlib.pyplot as plt
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jul 22 15:24:10 2020
+
+@author: Ahmed
+"""
+
+
+
 import pandas as pd
-import warnings
+from keras.models import Sequential
+from keras.layers import Dense
+import numpy as np
+from sklearn.model_selection import train_test_split
 import pickle
+from keras import backend as K 
 
-warnings.filterwarnings('always')  # "error", "ignore", "always", "default", "module" or "once"
+K.clear_session()
 
-#----------------------------------------------------
+dataframe = pd.read_csv("C:\\Users\\Ahmed\\Desktop\\diabetes\\datasets_diabetes.csv")
+dataframe.head()
 
-#load breast cancer data
-heart_df=pd.read_csv("C:\\Users\\Ahmed\\Desktop\\prmodel\\framingham.csv")
-heart_df.head()
-heart_df = heart_df.drop(['education'], axis=1)
+df_label = dataframe['Outcome']
+df_features = dataframe.drop('Outcome', 1)
+df_features.replace('?', -99999, inplace=True)
+df_features.head()
 
-#X Data
-X = heart_df.iloc[:, :-1].values
-y = heart_df.iloc[:, -1].values
-#X =( heart_df.male , heart_df.age , heart_df.education , heart_df.currentSmoker , heart_df.cigsPerDay , heart_df.BPMeds , heart_df.prevalentStroke , heart_df.prevalentHyp , heart_df.diabetes , heart_df.totChol , heart_df.sysBP , heart_df.diaBP , heart_df.BMI , heart_df.heartRate , heart_df.glucose) 
-#print('X shape is ' , X.shape)
-#print('X Features are \n' , BreastData.feature_names)
+label = []
+for lab in df_label:
+    if lab == 1:
+        label.append([1, 0])  # class 1
+    elif lab == 0:
+        label.append([0, 1])  # class 0
+        data = np.array(df_features)
+        
+label = np.array(label)
 
-#y Data
-#y = heart_df.TenYearCHD
-#print('y shape is ' , y.shape)
-#print('y Columns are \n' , BreastData.target_names)
+x_train, x_test, y_train, y_test = train_test_split(data, label, test_size=0.2, random_state=42)
+x_train.shape
 
-#----------------------------------------------------
-#Splitting data
-#X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.35, random_state=44, shuffle =True)
+model1 = Sequential()
+model1.add(Dense(500, input_dim=8, activation='sigmoid'))
+model1.add(Dense(100, activation='sigmoid'))
+model1.add(Dense(2, activation='softmax'))
+model1.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
+model1.fit(x_train,y_train, epochs=1000, batch_size=70, validation_data=(x_test, y_test))
 
-#Splitted Data
-#print('X_train shape is ' , X_train.shape)
-#print('X_test shape is ' , X_test.shape)
-#print('y_train shape is ' , y_train.shape)
-#print('y_test shape is ' , y_test.shape)
-
-#----------------------------------------------------
-#Applying GaussianNB Model 
-
-'''
-#sklearn.naive_bayes.GaussianNB(priors=None, var_smoothing=1e-09)
-'''
-
-GaussianNBModel = GaussianNB()
-GaussianNBModel.fit(X_train, y_train)
+scoers=model1.evaluate(data,label)
 
 
-
-#Calculating Prediction
-y_pred = GaussianNBModel.predict(X_test)
-y_pred_prob = GaussianNBModel.predict_proba(X_test)
+y_pred= model1.predict(x_test)
+y_pred_prob = model1.predict_proba(x_test)
 
 
-# metrics.f1_score(y_test, y_pred, average='weighted', labels=np.unique(y_pred))
-#----------------------------------------------------
-#Calculating Confusion Matrix
-CM = confusion_matrix(y_test, y_pred)
-
-# drawing confusion matrix
-sns.heatmap(CM, center = True)
-plt.show()
-#l=y_pred.predict(f)
-#prediction = GaussianNBModel.predict(0,70,1,0,0,0,1,1,0,107,143,93,25.8,68,62)
-#print(prediction)
-#output = prediction[0]
-#predictions =GaussianNBModel.predict([[1,43,1,0,0,0,0,0,0,126,152,96.5,25.65,86,82]])
-#print ( predictions )
+#b=(model.predict_proba(np.array([[1,85,66,29,0,26.6,0.351,31]])))
 
 
+#s=round(b[0,0])
 
-pickle.dump(GaussianNBModel, open('model.pkl','wb'))
+
+    
+pickle.dump(model1, open('model.pkl','wb'))
 
 model = pickle.load(open('model.pkl','rb'))
 
-
+print(model.predict(np.array([[1,85,66,29,0,26.6,0.351,31]])))
 
