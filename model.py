@@ -13,9 +13,6 @@ from keras.layers import Dense
 import numpy as np
 from sklearn.model_selection import train_test_split
 import pickle
-from keras import backend as K 
-
-K.clear_session()
 
 dataframe = pd.read_csv("C:\\Users\\Ahmed\\Desktop\\diabetes\\datasets_diabetes.csv")
 dataframe.head()
