@@ -1,3 +1,4 @@
+yellowbrick==1.1
 tensorflow==1.14.0
 Keras==2.3.1
 Flask==1.1.1
