@@ -4,7 +4,6 @@ import pickle
 
 app = Flask(__name__)
 
-global modell = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def home():
@@ -14,13 +13,14 @@ def home():
 
 @app.route('/predict',methods=['POST'])
 def predict():
+    model = pickle.load(open('model.pkl', 'rb'))
     '''
     For rendering results on HTML GUI
     '''
     int_features = [float(x) for x in request.form.values()]
     final_features = np.array(int_features)
-    prediction = modell.predict([[final_features]])
-    predictionsProb =modell.predict_proba([[final_features]])
+    prediction = model.predict([[final_features]])
+    predictionsProb =model.predict_proba([[final_features]])
    # prediction = model.predict(np.array([[1,85,66,29,0,26.6,0.351,31]]))
    # predictionsProb = model.predict_proba(np.array([[1,85,66,29,0,26.6,0.351,31]]))
     
@@ -43,7 +43,7 @@ def predict_api():
     '''
     
     data = request.get_json(force=True)
-    prediction = modell.predict([[np.array(list(data.values()))]])
+    prediction = model.predict([[np.array(list(data.values()))]])
 
     output = prediction[0]
     return jsonify(output)
