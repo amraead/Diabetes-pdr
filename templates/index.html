@@ -52,13 +52,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             <div class="form-control">
                 <label class="header">Pregnancies<span>:</span></label>
-                <input type="number" name="age" id="age" placeholder="Enter Pregnancies" title="Enter Pregnancies" required="required" min="0" max="1000" step="any" />
+                <input type="number" name="age" id="age" placeholder="Enter Pregnancies" title="Enter Pregnancies" required="required" min="0" max="1000" step="any" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" />
             </div>
   
 
             <div class="form-control">
                 <label class="header">Glucose<span>:</span></label>
-                <input type="number" name="cigsPerDay" id="cig" placeholder="Enter Glucose" title="Enter Glucose" required="required" min="0" max="1000"
+                <input type="number" name="cigsPerDay" id="cig" placeholder="Enter Glucose" title="Enter Glucose" required="required" min="0" max="1000" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))"
                     step="any" />
 
             </div>
@@ -67,14 +67,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             <div class="form-control">
                 <label class="header">Blood Pressure<span>:</span></label>
-                <input type="number" id="address2" name="BPMeds" placeholder="Enter Blood Pressure"  title="Do You Take Blood Pressure Medicine Recently ?" required="required"
+                <input type="number" id="address2" name="BPMeds" placeholder="Enter Blood Pressure"  title="Do You Take Blood Pressure Medicine Recently ?" required="required" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))"
                     step="any">
             </div>
             
             
             <div class="form-control">
                 <label class="header">Skin Thickness<span>:</span></label>
-                <input type="number" id="chol" name="totChol" placeholder="Enter Skin Thickness" required="required"  min="0" max="1000" step="any">
+                <input type="number" id="chol" name="totChol" placeholder="Enter Skin Thickness" required="required" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" min="0" max="1000" step="any">
             </div>
 
 
@@ -84,22 +84,22 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
             <div class="form-control">
                 <label class="header">Insulin<span>:</span></label>
-                <input type="number" id="pre"  name="sysBP" placeholder="Enter Insulin" title="How much systolic blood pressure ?" required="required" min="0" max="1000" step="any">
+                <input type="number" id="pre"  name="sysBP" placeholder="Enter Insulin" title="How much systolic blood pressure ?" required="required" min="0" max="1000"onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" step="any">
             </div>
 
             <div class="form-control">
                 <label class="header">BMI<span>:</span></label>
-                <input type="number" id="dbl"  name="diaBP" placeholder="Enter BMI" title="How Much Diastolic Blood Pressure ?" required="required" min="0" max="1000" step="any">
+                <input type="number" id="dbl"  name="diaBP" placeholder="Enter BMI" title="How Much Diastolic Blood Pressure ?" required="required" min="0" max="1000"onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))" step="any">
             </div>
 
             <div class="form-control">
                 <label class="header">DiabetesPedegree<br>Function<span>:</span></label>
-                <input type="number" name="BMI" id="bmi" placeholder="Enter Diabetes Pedegree Function" title="Enter Diabetes Pedegree Function" required="requird"  min="0" max="1000" step="any">
+                <input type="number" name="BMI" id="bmi" placeholder="Enter Diabetes Pedegree Function" title="Enter Diabetes Pedegree Function" required="requird" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))"  min="0" max="1000" step="any">
             </div>
 
             <div class="form-control">
                 <label class="header">Age<span>:</span></label>
-                <input type="number" name="heartRate" id="hrt" placeholder="Enter Your Age" title="Enter Your Age" required="requird"  min="0" max="1000" step="any">
+                <input type="number" name="heartRate" id="hrt" placeholder="Enter Your Age" title="Enter Your Age" required="requird" onkeydown="javascript: return event.keyCode === 8 || event.keyCode === 46 ? true : !isNaN(Number(event.key))"  min="0" max="1000" step="any">
             </div>
 
         </div>
@@ -110,7 +110,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="clear"></div>
         </div>
         <div class="form-control last">
-            <a><input readonly="readonly" type="reset" value="send" style="text-align: center" class="reset" ></a>
+            <a><input readonly="readonly" type="reset" value="reset" style="text-align: center" class="reset" ></a>
             <button type="submit" class="register" id="message" onclick="send()">Predict</button>
             
             <div class="clear"></div>
